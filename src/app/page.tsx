@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/home.module.scss';
 import { Input } from './../components/ui/input/Input';
+import { Button } from './../components/ui/button/button';
 
 export default function Home() {
   return (
@@ -17,6 +18,10 @@ export default function Home() {
             <Input type="email" placeholder="Digite seu email" />
 
             <Input type="password" placeholder="Digite sua senha" />
+
+            <Button type="submit" loading={false}>
+              Acessar
+            </Button>
           </form>
         </div>
       </div>
