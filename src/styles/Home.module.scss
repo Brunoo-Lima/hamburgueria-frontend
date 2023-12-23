@@ -39,6 +39,11 @@
   cursor: pointer;
 }
 
+.title {
+  color: var(--white);
+  padding-bottom: 1rem;
+}
+
 @media (max-width: 620px) {
   .container {
     h1 {
