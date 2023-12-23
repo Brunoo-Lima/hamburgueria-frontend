@@ -14,7 +14,7 @@ export default function Home() {
         <h1>Hamburgueria</h1>
 
         <div className={styles.login}>
-          <form action="">
+          <form>
             <Input type="email" placeholder="Digite seu email" />
 
             <Input type="password" placeholder="Digite sua senha" />
@@ -23,6 +23,8 @@ export default function Home() {
               Acessar
             </Button>
           </form>
+
+          <a className={styles.text}>Não possuí uma conta? Cadastre-se</a>
         </div>
       </div>
     </>
