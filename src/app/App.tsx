@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
 import styles from '../styles/home.module.scss';
 import { Input } from '../components/ui/input/Input';
 import { Button } from '../components/ui/button/button';
@@ -10,13 +10,16 @@ import Link from 'next/link';
 
 const App = () => {
   const { signIn } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   async function handleLogin(e: FormEvent) {
     e.preventDefault();
 
     let data = {
-      email: 'bruno@gmail.com',
-      password: '123',
+      email,
+      password,
     };
     await signIn(data);
   }
@@ -27,9 +30,19 @@ const App = () => {
 
       <div className={styles.login}>
         <form onSubmit={handleLogin}>
-          <Input type="email" placeholder="Digite seu email" />
+          <Input
+            type="email"
+            placeholder="Digite seu email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-          <Input type="password" placeholder="Digite sua senha" />
+          <Input
+            type="password"
+            placeholder="Digite sua senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
           <Button type="submit" loading={false}>
             Acessar
